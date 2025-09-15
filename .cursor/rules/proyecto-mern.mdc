@@ -1,0 +1,62 @@
+---
+alwaysApply: true
+description: Proyecto MERN
+globs:
+---
+
+# Contexto del Proyecto: Aplicación CRUD Full-Stack de Gestión de Empleados
+
+A continuación se detallan las reglas y especificaciones para el desarrollo de este proyecto. El objetivo es que el asistente de IA tenga pleno conocimiento de la arquitectura, tecnologías y funcionalidades requeridas.
+
+---
+
+## 1. Resumen del Proyecto
+
+El proyecto consiste en construir una **aplicación web full-stack** que permita realizar operaciones **CRUD (Crear, Leer, Actualizar y Eliminar)** para gestionar una base de datos de empleados. La aplicación debe contar con un frontend interactivo y un backend robusto que se comunique con una base de datos relacional.
+
+---
+
+## 2. Tecnologías Principales (Tech Stack)
+
+* **Frontend:**
+    * **Framework/Librería:** `React.js`
+    * **Herramienta de Build:** `Vite`
+    * **Librería de Componentes UI:** `Chakra UI`
+    * **Gestión de Datos/Estado del Servidor:** `React Query`
+
+* **Backend:**
+    * **Entorno de Ejecución:** `Node.js`
+    * **Framework del Servidor:** `Express.js`
+
+* **Base de Datos:**
+    * **Sistema de Gestión de Base de Datos:** `PostgreSQL`
+
+---
+
+## 3. Reglas y Funcionalidades Clave
+
+* **Operaciones CRUD Completas:**
+    * **Crear (Create):** El usuario debe poder agregar nuevos empleados a través de un formulario.
+    * **Leer (Read):** La aplicación debe mostrar una lista de todos los empleados existentes en una tabla.
+    * **Actualizar (Update):** El usuario debe poder editar la información de un empleado existente.
+    * **Eliminar (Delete):** El usuario debe poder eliminar un empleado, con un diálogo de confirmación previo.
+
+* **Interfaz de Usuario (UI):**
+    * Se debe utilizar **Chakra UI** para todos los componentes visuales (tabla, botones, modales, inputs, etc.).
+    * Se debe implementar **un único modal o cuadro de diálogo** tanto para **agregar** un nuevo empleado como para **actualizar** uno existente.
+    * Al editar, el formulario en el modal debe **precargar automáticamente** los datos del empleado seleccionado.
+    * La interfaz debe **actualizarse automáticamente** y en tiempo real después de cada operación (crear, actualizar, eliminar) sin necesidad de recargar la página, utilizando las capacidades de **React Query**.
+
+* **Manejo de Errores (Error Handling):**
+    * **Validación en el Frontend:**
+        * Mostrar mensajes de error si los campos obligatorios (como nombre, correo, etc.) están vacíos.
+    * **Errores del Backend (Comunicados al Frontend):**
+        * **Restricción de Edad:** La base de datos (PostgreSQL) tendrá una restricción para que los empleados sean mayores de 18 años. Si se intenta registrar a alguien menor, el backend debe devolver un error y el frontend debe mostrarlo al usuario.
+        * **Restricción de Email Único:** El campo de correo electrónico debe ser único. Si se intenta registrar un email que ya existe, el backend debe devolver un error y el frontend debe notificarlo.
+        * **Manejo de Fallos:** Simular y manejar correctamente los errores en caso de que una operación (ej. eliminar) falle en el servidor.
+
+* **Arquitectura del Backend:**
+    * Configurar un servidor **Express.js**.
+    * Definir rutas claras y específicas para cada operación de la API (ej. `GET /employees`, `POST /employees`, `PUT /employees/:id`, `DELETE /employees/:id`).
+    * Establecer la conexión con la base de datos **PostgreSQL**.
+    * Implementar la lógica de negocio para interactuar con la base de datos en cada una de las rutas.
