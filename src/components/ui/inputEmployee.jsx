@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from "./dialog.jsx";
 import { Field } from "./field.jsx";
-import SelectRole from "./selectRole.jsx";
+import SelectRole from "./SelectRole.jsx";
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
