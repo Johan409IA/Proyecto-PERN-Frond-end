@@ -2,7 +2,10 @@
 const getBaseUrl = () => {
   // En producción (Vercel), usar la variable de entorno
   if (import.meta.env.PROD) {
-    return import.meta.env.VITE_API_URL || "https://backend-production-33a8.up.railway.app/api/employee";
+    return (
+      import.meta.env.VITE_API_URL ||
+      "https://backend-production-33a8.up.railway.app/api/employee"
+    );
   }
   // En desarrollo, usar la URL del backend directamente
   return "https://backend-production-33a8.up.railway.app/api/employee";
