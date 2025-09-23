@@ -1,5 +1,5 @@
 {
   "env": {
-    "VITE_API_URL": "https://backend-production-33a8.up.railway.app/api/employee"
+    "REACT_APP_API_URL": "https://backend-production-33a8.up.railway.app/api/employee"
   }
 }
