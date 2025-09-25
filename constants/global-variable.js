@@ -1,21 +1,25 @@
 // Configuración de la URL del backend
 const getBaseUrl = () => {
-  // En producción (Vercel), usar la variable de entorno
-  if (import.meta.env.PROD) {
-    return (
-      import.meta.env.VITE_API_URL ||
-      "https://backend-production-33a8.up.railway.app/api/employee"
-    );
+  // Primero intentar usar la variable de entorno VITE_API_URL
+  if (import.meta.env.VITE_API_URL) {
+    console.log('Usando VITE_API_URL:', import.meta.env.VITE_API_URL);
+    return import.meta.env.VITE_API_URL;
   }
-  // En desarrollo, usar la URL del backend directamente
-  return "https://backend-production-33a8.up.railway.app/api/employee";
+  
+  // Si no está definida, usar la URL por defecto
+  const defaultUrl = "https://backend-production-33a8.up.railway.app/api/employee";
+  console.log('Usando URL por defecto:', defaultUrl);
+  return defaultUrl;
 };
 
 const baseUrl = getBaseUrl();
 
-// Debug: mostrar la URL que se está usando
+// Debug: mostrar información del entorno
+console.log("=== Configuración de API ===");
 console.log("Entorno:", import.meta.env.MODE);
+console.log("Es producción:", import.meta.env.PROD);
 console.log("API URL configurada:", baseUrl);
-console.log("Variable de entorno VITE_API_URL:", import.meta.env.VITE_API_URL);
+console.log("Variable VITE_API_URL:", import.meta.env.VITE_API_URL || "No definida");
+console.log("============================");
 
 export { baseUrl };
